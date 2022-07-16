@@ -1,0 +1,48 @@
+Request Postman
+#Create a user
+@app.route('/user', methods = ['POST'])
+http://localhost:5000/users
+raw => JSON 
+
+{
+    "username": "Bau Rosales",
+    "email": "email33@gmail.com",
+    "password": "gordito4"
+}
+
+#Get users
+@app.route('/user', methods = ['GET'])
+http://localhost:5000/users
+[
+    {
+        "_id": {
+            "$oid": "62d0b439e9ae4ea8fe224a63"
+        },
+        "username": "Bau Rosales",
+        "email": "email33@gmail.com",
+        "password": "pbkdf2:sha256:260000$3FUK72Ua9dCTih5T$5e7574543e739d1e123e85abb4ffd46cb297ede6f927083ed9e2d22d3f67670d"
+    }
+]
+
+# Get single user
+@app.route('/user/<id>', methods = ['GET'])
+http://localhost:5000/users/ id
+{
+    "username": value,
+    "email": value,
+    "password": value
+}
+
+#Delete single user
+@app.route('/users/<id>', methods=['DELETE'])
+http://localhost:5000/users/ id
+{
+'message': 'User ' + id + 'was Deleted successfully'
+}
+
+#Update single user
+@app.route('/users/<id>', methods=['PUT'])
+http://localhost:5000/users/id
+{
+'message': 'User'+ id + 'was updated succesfully'
+}
